@@ -1,6 +1,4 @@
-﻿const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = 'لبريفكس حقق'
+const prefix = '$'
 
 client.on('ready', () => {
     console.log(`~~~~~~~~~~~~~~~~~`);
@@ -9,7 +7,7 @@ client.on('ready', () => {
     console.log(`on  ${client.guilds.size} Servers `);
     console.log(`~~~~~~~~~~~~~~~~~~~~~~~~`);
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setGame(`#TheH1ts clan|$Help`,"http://twitch.tv/y04zgamer")
+    client.user.setGame(`#PG Comunity|$Help`,"http://twitch.tv/y04zgamer")
     client.user.setStatus("dnd")
  });
  
@@ -188,73 +186,6 @@ client.on('message', message => {
     })
     }
     });
-    
-
-
-
-
-
-
-
-
-
-
-
-
- client.on("message", (message) => {
-    
-                        if (message.content.startsWith(prefix + "new")) {
-        const reason = message.content.split(" ").slice(1).join(" ");
-        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-        if (message.guild.channels.exists("name", "ticket-" + message.author.id)) return message.channel.send(`You already have a ticket open.`);
-        message.guild.createChannel(`ticket-${message.author.id}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "Support Team");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(`تم أنشاء التذكره , #${c.name}.`);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .addField(` ${message.author.username}!`, ` *** شكرًا لك على التواصل مع فريق الدعم! سنرد عليك في أقرب وقت ممكن.. *** `)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error); 
-    }
-
-                        if (message.content.startsWith(prefix + "close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج روم التذكره.`);
-
-        message.channel.send(` ***هل أنت متأكد من إغلآق التذكرة ؟, Type -confirm to close the ticket., لديك 10 ثوآني للتأكيد .***`)
-            .then((m) => {
-                message.channel.awaitMessages(response => response.content === '-confirm', {
-                        max: 1,
-                        time: 10000,
-                        errors: ['time'],
-                    })
-                    .then((collected) => {
-                        message.channel.delete();
-                    })
-                    .catch(() => {
-                        m.edit('أنتهى الوقت لن يتم أغلاق لتذكره').then(m2 => {
-                            m2.delete();
-                        }, 3000);
-                    });
-            });
-    }
-
-});
 
 
 
@@ -521,7 +452,7 @@ client.on('message', message => {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/bvrNWbY**")
+  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/g9bQteY**")
      
      
   message.channel.sendEmbed(embed);
@@ -596,7 +527,7 @@ client.on('guildMemberAdd', member=> {
 
 
 client.on('message', message => {
-  if (!message.content.startsWith(prefix)) return;
+  if (!message.content.startsWith($)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
   if (message.author.id !== '232564113459511306') return;
@@ -634,7 +565,7 @@ if (message.content.startsWith(prefix + 's')) {
 
 
 client.on('message', message => {
-	var prefix = "-";
+	var prefix = "$";
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -816,7 +747,7 @@ client.on('guildMemberAdd', member => {
                       
                                      .addField(' الـسيرفر', `${member.guild.name}`,true)
                                        
-     .setFooter("#TheH1TS CLAN ")
+     .setFooter("#PG Community ")
         .setTimestamp()
     
       channel.sendEmbed(embed);
@@ -1168,7 +1099,7 @@ if(msg.content.startsWith (prefix  + 'server')) {
 
 
 client.on('message', message => {
-    if (message.content === "$bot") {
+    if (message.content === "&bot") {
            if(!message.channel.guild) return message.reply('** This command only for servers **');
     let embed = new Discord.RichEmbed()
  .setColor('RANDOM')
@@ -1205,7 +1136,7 @@ client.on('message', message => {
         .setColor("2fff00")
         .setDescription(`
 **-------------------
--هذا هو الرابط :https://discordapp.com/api/oauth2/authorize?client_id=585603757589659648&permissions=0&scope=bot
+-هذا هو الرابط :https://discordapp.com/api/oauth2/authorize?client_id=588358715980120070&permissions=0&scope=bot
 -ارسله للي تحب وحيآك انت وياه
 -ونورنا ياجميل :heart: 
 ------------------- **`)
@@ -1367,7 +1298,7 @@ client.on('message',async message =>{
 
 
 
-var id = ['413660639668731914','241451199499468800'] //تذكر إذا كنت تبي تضيف شخص معاك حط فاصله وبعدين العلامه '
+var id = ['490871722011131935'] //تذكر إذا كنت تبي تضيف شخص معاك حط فاصله وبعدين العلامه '
 var initcmd = '$'
 const developers = id
 const adminprefix = initcmd;
@@ -1545,48 +1476,90 @@ client.on('message', async message => {
 
 
 
-const cuttweet = [
-     'كت تويت ‏| تخيّل لو أنك سترسم شيء وحيد فيصبح حقيقة، ماذا سترسم؟',
-     'كت تويت | أكثر شيء يُسكِت الطفل برأيك؟',
-     'كت تويت | الحرية لـ ... ؟',
-     'كت تويت | قناة الكرتون المفضلة في طفولتك؟',
-     'كت تويت ‏| كلمة للصُداع؟',
-     'كت تويت ‏| ما الشيء الذي يُفارقك؟',
-     'كت تويت | موقف مميز فعلته مع شخص ولا يزال يذكره لك؟',
-     'كت تويت ‏| أيهما ينتصر، الكبرياء أم الحب؟',
-     'كت تويت | بعد ١٠ سنين ايش بتكون ؟',
-     'كت تويت ‏| مِن أغرب وأجمل الأسماء التي مرت عليك؟',
-     '‏كت تويت | عمرك شلت مصيبة عن شخص برغبتك ؟',
-     'كت تويت | أكثر سؤال وجِّه إليك مؤخرًا؟',
-     '‏كت تويت | ما هو الشيء الذي يجعلك تشعر بالخوف؟',
-     '‏كت تويت | وش يفسد الصداقة؟',
-     '‏كت تويت | شخص لاترفض له طلبا ؟',
-     '‏كت تويت | كم مره خسرت شخص تحبه؟.',
-     '‏كت تويت | كيف تتعامل مع الاشخاص السلبيين ؟',
-     '‏كت تويت | كلمة تشعر بالخجل اذا قيلت لك؟',
-     '‏كت تويت | جسمك اكبر من عٌمرك او العكسّ ؟!',
-     '‏كت تويت |أقوى كذبة مشت عليك ؟',
-     '‏كت تويت | تتأثر بدموع شخص يبكي قدامك قبل تعرف السبب ؟',
-     'كت تويت | هل حدث وضحيت من أجل شخصٍ أحببت؟',
-     '‏كت تويت | أكثر تطبيق تستخدمه مؤخرًا؟',
-     '‏كت تويت | ‏اكثر شي يرضيك اذا زعلت بدون تفكير ؟',
-     '‏كت تويت | وش محتاج عشان تكون مبسوط ؟',
-     '‏كت تويت | مطلبك الوحيد الحين ؟',
-     '‏كت تويت | هل حدث وشعرت بأنك ارتكبت أحد الذنوب أثناء الصيام؟',
-]
+//help
+
+  client.on('message', msg => {
+    if(msg.content === '$help')
+    msg.reply('شـيكـ علىُ الخآآآصــ:white_check_mark:')
+  });
+  
+  //help prv
+  
+  client.on("message", message => {
+    if (message.content === "&help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("RANDOM")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**
+
+
+
+
+         
+-🚀 سرعه اتصال ممتازه
+-😎 سهل الاستخدام
+-⚠ صيانه كل يوم
+-💵 مجاني بل كامل
+ـــــــــــــــــــــــــــــــــــــــــــ
  
- client.on('message', message => {
-   if (message.content.startsWith("cut")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
-  var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-   .setThumbnail(message.author.avatarURL)
- .addField('لعبه كت تويت' ,
-  `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
-  message.channel.sendEmbed(embed);
-  console.log('[id] Send By: ' + message.author.username)
-    }
-});
+الأوامـر العآآمـة :loudspeaker: 
+ 
+ـــــــــــــــــــــــــــــــــــــــــــ
+اوامر البوت 
+$ping | لمعرفة بنقك و بنق البوت
+$bot | معلومـآت عن البوت
+$server | يعطيك معلومات عن السيرفر
+$embed | لكتابة الأمر مع الإمبد
+$skin <user> | يوريك سكن لاعب ماينكرافت
+$channels | يوريك معلومات جميع رومات السيرفر
+$avatar | للإطلاع على صورتك
+$bans | لرؤية المبندين اللي بالسيرفر
+$id | لمعرفة بعض المعلومات عنك في السيرفر
+$new | لفتح تكت في السيرفر
+$member | معلومات اعضاء السيرفر
+$emojis | يوريك ايموجيات السيرفر
+$ip1 .... $ip10 | يديك سيرفرات مانكرافت عشوائية
+$بيرسلك رابط السيرفر و رابط البوت للي يبي يضيفه | رابط  
+$user | بيعطيك معلومات عن نفسك
+$ip1 > ip10 | يعطيك سيرفرات ماينكرافت عشوائية 
+$emojis | لرؤية ايموجيات السيرفر
+$savatar | لرؤية صورة السيرفر
+و الرد التلقائي موجود .
+_______________________________
+الأوامر الأدارية.
+_______________________________
+$bc | لارسال رسالة بواسطة البوت لجميع اعضاء السيرفر
+$ban (@user) | لتبنيد شخص ما من السيرفر 
+$kick (@user) | لطرد شخص ما من السيرفر
+$vban (@user) | بمنع الشخص من دخول الرومات الصوتية 
+$uvban (@user) | يزيل منع الشخص من دخلو الرومات الصوتية 
+$vmute (@user) | يعطي ميوت للشخص داخل الرومات الصوتية 
+$uvmute (@user) | يزيل الميوت عن الشخص داخل الرومات الصوتية
+$vkick (@user) | يطرد الشخص من الروومات الصوتية 
+$move (@user) سحب الشخص من الرم الصوتي الى رومك الوتي
+$mute (@user) | لاسكات شخص ما 
+$unmute (@user) | لألغاء الميوت عن شخص ما 
+$role (@user) | لأعطاء رتبه لعضو  
+$voicesetup | لصنع رووم صوتي 
+$createchannels | لصنع رووم صوتي او كتابي 
+$stream | لتحديد حاله البوت 
+$lis | لتغير اليسن حق البوت 
+$ply | لتحديد البلاي حق البوت
+$clear | يمسح الكتبة 
+$username | لتغير اسم البوت 
+$editavatar | لتغير صورة البوت 
+هاذي هي اوامر البوت كاملة اذا كان عندك اي استفسار التواصل مع !x_ike,..#1000
+      
+
+
+
+
+ ** `)
+       .setFooter('By | x_ike ,')
+   message.author.sendEmbed(embed)
+   
+   }
+   });
 
 
 
